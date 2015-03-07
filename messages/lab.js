@@ -4,7 +4,9 @@ function parse() {
         request.onreadystatechange = function() {
                 json = request.responseText;
                 parsed = JSON.parse(json);
-                console.log(parsed);
+                for (x in parsed) {
+                        console.log(x["content"] + "\n" + x["username"]);
+                }
         }
         request.send();
 }
