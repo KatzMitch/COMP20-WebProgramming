@@ -1,1 +1,12 @@
-/* Your CSS here... */
+p {
+        font-family: arial;
+        background-color: black; 
+}
+
+.content {
+        font-size: 16px;
+}
+
+.user {
+        font-size: 12px;
+}
