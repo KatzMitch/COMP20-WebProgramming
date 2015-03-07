@@ -5,8 +5,8 @@ function parse() {
                 if (request.readyState == 4) {
                         json = request.responseText;
                         parsed = JSON.parse(json);
+                        html = document.getElementById("messages");
                         for (x in parsed) {
-                                html = document.getElementByID("messages");
                                 html.innerHTML += "<h2>" + parsed[x].content + "</h2><p>" + parsed[x].username + "</p>";
                                 //console.log(parsed[x].content + " " + parsed[x].username);
                         }
