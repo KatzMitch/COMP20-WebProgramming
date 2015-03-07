@@ -4,9 +4,7 @@ function parse() {
         request.onreadystatechange = function() {
                 json = request.responseText;
                 parsed = JSON.parse(json);
-                for (x in parsed) {
-                        console.log(x["id"]["content"]);
-                }
+                console.log(parsed);
         }
         request.send();
 }
