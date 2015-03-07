@@ -5,7 +5,7 @@ function parse() {
                 json = request.responseText;
                 parsed = JSON.parse(json);
                 for (x in parsed) {
-                        console.log(parsed[x]["content"] + "\n" + parsed[x]["username"]);
+                        console.log(parsed[x].content + " " + parsed[x].username);
                 }
         }
         request.send();
