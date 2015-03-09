@@ -3,7 +3,7 @@ var myLat, myLng, jsonLocation;
 function init() {
         console.log("init");
         getLocation();
-        drawMap();
+        //drawMap();
 }
 
 function getLocation() {
@@ -31,7 +31,7 @@ function sendLocation(login, lat, lng) {
         query = "login=" + login + "&lat=" + myLat + "&lng=" + myLng;
         request.send(query);
 }
-
+/*
 function drawMap() {
         console.log("draw");
         mapOptions = {
@@ -50,4 +50,4 @@ function drawMap() {
                 marker.setMap(map);
         }
         console.log("out of loop");
-}
+}*/
