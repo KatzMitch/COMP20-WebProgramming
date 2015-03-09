@@ -42,7 +42,7 @@ function drawMap() {
         me = new google.maps.LatLng(myLat, myLng);
         mapOptions = {
                 zoom: 12,
-                center: me
+                center: {lat: myLat, lng: myLng}
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         map.panTo(me);
