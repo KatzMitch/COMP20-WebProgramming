@@ -11,6 +11,7 @@ function getLocation() {
                         console.log("Get lat/lng");
                         myLat = pos.coords.latitude;
                         myLng = pos.coords.longitude;
+                        sendLocation("SheriMcKelvey", myLat, myLng);
                 });
         } else {
                 alert("Oops! Your browser doesn't support GeoLocation");
@@ -26,9 +27,6 @@ function getLocation() {
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         console.log("Pan");
         map.panTo(me);
-        console.log("send");
-        sendLocation("SheriMcKelvey", myLat, myLng);
-        console.log("sent");
 }
 
 function sendLocation(login, lat, lng) {
