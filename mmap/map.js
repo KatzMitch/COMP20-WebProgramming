@@ -8,19 +8,24 @@ function getLocation() {
         console.log("get location");
         if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(pos) {
+                        console.log("Get lat/lng");
                         myLat = pos.coords.latitude;
                         myLng = pos.coords.longitude;
+                        console.log("send");
                         sendLocation("SheriMcKelvey", myLat, myLng);
+                        console.log("sent");
                 });
         } else {
                 alert("Oops! Your browser doesn't support GeoLocation");
         }
+        console.log("make me");
         me = new google.maps.LatLng(myLat, myLng);
         mapOptions = {
                 zoom: 12,
                 center: me,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
         };
+        console.log("drawing?");
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         map.panTo(me);
 }
