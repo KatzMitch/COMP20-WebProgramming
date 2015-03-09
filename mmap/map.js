@@ -1,3 +1,6 @@
+var myLat;
+var myLng;
+
 function init() {
         console.log("init");
         getLocation();
@@ -8,8 +11,8 @@ function getLocation() {
         console.log("get location");
         if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function() {
-                        lat = position.coords.latitude;
-                        lng = position.coords.longitude;
+                        myLat = position.coords.latitude;
+                        myLng = position.coords.longitude;
                         sendLocation("SheriMcKelvey", lat, lng);
                 });
         } else {
@@ -23,7 +26,7 @@ function sendLocation(login, lat, lng) {
         request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.onreadystatechange = parseJSON;
-        query = "login=" + login + "&lat=" + lat + "&lng=" + lng;
+        query = "login=" + login + "&lat=" + myLat + "&lng=" + myLng;
         request.send(query);
 }
 
@@ -36,7 +39,7 @@ function parseJSON() {
 
 function drawMap() {
         console.log("draw");
-        me = new google.maps.LatLng(lat, lng);
+        me = new google.maps.LatLng(myLat, myLng);
         mapOptions = {
                 zoom: 12,
                 center: me
