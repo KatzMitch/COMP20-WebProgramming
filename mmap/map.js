@@ -3,7 +3,7 @@ var myLat, myLng, jsonLocation;
 function init() {
         console.log("init");
         getLocation();
-        //drawMap();
+        drawMap();
 }
 
 function getLocation() {
