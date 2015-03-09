@@ -1,9 +1,5 @@
 var myLat, myLng, jsonLocation;
 
-function init() {
-        document.getElementById("map").addEventListener("load", getLocation);
-}
-
 function getLocation() {
         console.log("get location");
         if (navigator.geolocation) {
