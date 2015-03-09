@@ -1,5 +1,6 @@
 var myLat;
 var myLng;
+var jsonLocation;
 
 function init() {
         console.log("init");
