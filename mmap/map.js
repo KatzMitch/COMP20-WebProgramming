@@ -7,7 +7,7 @@ function init() {
 function getLocation() {
         console.log("get location");
         if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function() = {
+                navigator.geolocation.getCurrentPosition(function() {
                         lat = position.coords.latitude;
                         lng = position.coords.longitude;
                         sendLocation("SheriMcKelvey", lat, lng);
