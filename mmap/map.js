@@ -12,6 +12,7 @@ function getLocation() {
                 navigator.geolocation.getCurrentPosition(function(pos) {
                         myLat = pos.coords.latitude;
                         myLng = pos.coords.longitude;
+                        console.log("lat: " + myLat + "lng: " + myLng);
                         sendLocation("SheriMcKelvey", myLat, myLng);
                 });
         } else {
