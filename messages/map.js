@@ -1,9 +1,11 @@
 function init() {
+        console.log("init");
         getLocation();
         drawMap();
 }
 
 function getLocation() {
+        console.log("get location");
         if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function() = {
                         lat = position.coords.latitude;
@@ -16,6 +18,7 @@ function getLocation() {
 }
 
 function sendLocation(login, lat, lng) {
+        console.log("send location");
         request = new XMLHttpRequest();
         request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -25,12 +28,14 @@ function sendLocation(login, lat, lng) {
 }
 
 function parseJSON() {
+        console.log("parse json");
         if (request.readystate == 4) {
                 jsonLocation = JSON.parse(request.responsetext);
         }
 }
 
 function drawMap() {
+        console.log("draw");
         me = new google.maps.LatLng(lat, lng);
         mapOptions = {
                 zoom: 12,
