@@ -46,13 +46,16 @@ function drawMap() {
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         map.panTo(mapOptions.center);
+        console.log("loop in");
         for (x in jsonLocation) {
+                console.log("looping");
                 marker = new google.maps.Marker({
                         position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
                         title: jsonLocation[x].login
                 });
                 marker.setMap(map);
         }
+        console.log("out of loop");
 }
 
 
