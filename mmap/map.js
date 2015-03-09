@@ -39,7 +39,7 @@ function drawMap() {
         mapOptions = {
                 zoom: 12,
                 center: new google.maps.LatLng(myLat, myLng)
-        }
+        };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         map.panTo(mapOptions.center);
         console.log("loop in");
