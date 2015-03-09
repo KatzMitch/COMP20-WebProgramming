@@ -18,7 +18,7 @@ function getLocation() {
         me = new google.maps.LatLng(myLat, myLng);
         mapOptions = {
                 zoom: 12,
-                center: {lat: myLat, lng: myLng}
+                center: me
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         map.panTo(me);
