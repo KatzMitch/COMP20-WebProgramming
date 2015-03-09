@@ -26,15 +26,13 @@ function sendLocation(login, lat, lng) {
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.onreadystatechange = function() {
                 if (request.readyState == 4) {
-                        console.log(request.responseText);
                         jsonLocation = JSON.parse(request.responseText);
-                        console.log(jsonLocation);
                 }
         }
         query = "login=" + login + "&lat=" + myLat + "&lng=" + myLng;
         request.send(query);
 }
-/*
+
 function drawMap() {
         console.log("draw");
         mapOptions = {
@@ -53,4 +51,4 @@ function drawMap() {
                 marker.setMap(map);
         }
         console.log("out of loop");
-}*/
+}
