@@ -36,13 +36,14 @@ function sendLocation(login, lat, lng) {
 function drawMap() {
         console.log("draw");
         console.log(myLat + " " + myLng);
+        me = new google.maps.LatLng(myLat, myLng);
         mapOptions = {
                 zoom: 12,
-                center: new google.maps.LatLng(myLat, myLng)
+                center: me
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        map.panTo(mapOptions.center);
-        console.log("loop in");
+        map.panTo(me);
+        console.log(jsonLocation);
         for (x in jsonLocation) {
                 console.log("looping");
                 marker = new google.maps.Marker({
