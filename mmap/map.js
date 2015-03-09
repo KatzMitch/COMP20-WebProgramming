@@ -26,6 +26,7 @@ function sendLocation(login, lat, lng) {
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.onreadystatechange = function() {
                 if (request.readyState == 4) {
+                        console.log(responseText);
                         jsonLocation = JSON.parse(request.responseText);
                         console.log(jsonLocation);
                 }
