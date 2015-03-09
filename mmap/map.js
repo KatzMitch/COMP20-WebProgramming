@@ -56,7 +56,7 @@ function drawMap() {
                         });
                         marker.setMap(map);
                 }
-                console.log("out of loop");\
+                console.log("out of loop");
         }
 }
 
