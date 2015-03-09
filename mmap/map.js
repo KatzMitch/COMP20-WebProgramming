@@ -39,6 +39,7 @@ function parseJSON() {
 }
 
 function drawMap() {
+        console.log(request.readystate);
         if (request.readystate == 4) {
                 console.log("draw");
                 mapOptions = {
@@ -59,11 +60,3 @@ function drawMap() {
                 console.log("out of loop");
         }
 }
-
-
-
-
-
-
-
-
