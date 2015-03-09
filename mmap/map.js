@@ -21,12 +21,12 @@ function sendLocation(login, lat, lng) {
         request.onreadystatechange = function() {
                 if (request.readyState == 4) {
                         jsonLocation = JSON.parse(request.responseText);
+                        drawMap();
                         console.log(jsonLocation);
                 }
         }
         query = "login=" + login + "&lat=" + myLat + "&lng=" + myLng;
         request.send(query);
-        drawMap();
 }
 
 function drawMap() {
