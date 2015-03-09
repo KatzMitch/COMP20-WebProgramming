@@ -1,5 +1,16 @@
 var myLat, myLng, jsonLocation;
 
+function init() {
+        me = new google.maps.LatLng(myLat, myLng);
+        mapOptions = {
+                zoom: 12,
+                center: {lat: myLat, lng: myLng}
+        };
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        map.panTo(me);
+        getLocation()
+}
+
 function getLocation() {
         console.log("get location");
         if (navigator.geolocation) {
@@ -22,7 +33,6 @@ function sendLocation(login, lat, lng) {
                 if (request.readyState == 4) {
                         jsonLocation = JSON.parse(request.responseText);
                         drawMap();
-                        console.log(jsonLocation);
                 }
         }
         query = "login=" + login + "&lat=" + myLat + "&lng=" + myLng;
@@ -32,13 +42,6 @@ function sendLocation(login, lat, lng) {
 function drawMap() {
         console.log("draw");
         console.log(myLat + " " + myLng);
-        me = new google.maps.LatLng(myLat, myLng);
-        mapOptions = {
-                zoom: 12,
-                center: {lat: myLat, lng: myLng}
-        };
-        map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        map.panTo(me);
         console.log(jsonLocation);
         for (x in jsonLocation) {
                 console.log("looping");
