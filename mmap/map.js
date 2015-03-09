@@ -21,6 +21,7 @@ function sendLocation(login, lat, lng) {
         request.onreadystatechange = function() {
                 if (request.readyState == 4) {
                         jsonLocation = JSON.parse(request.responseText);
+                        console.log(jsonLocation);
                 }
         }
         query = "login=" + login + "&lat=" + myLat + "&lng=" + myLng;
