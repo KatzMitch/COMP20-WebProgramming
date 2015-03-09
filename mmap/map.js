@@ -5,7 +5,7 @@ var jsonLocation;
 function init() {
         console.log("init");
         getLocation();
-        google.maps.addListener(window, "load", drawMap());
+        google.maps.addListener(window, "load", drawMap);
 }
 
 function getLocation() {
