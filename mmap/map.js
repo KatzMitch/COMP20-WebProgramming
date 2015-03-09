@@ -27,6 +27,7 @@ function getLocation() {
         };
         console.log("drawing?");
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        console.log("Pan");
         map.panTo(me);
 }
 
