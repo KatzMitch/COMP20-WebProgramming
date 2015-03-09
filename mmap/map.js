@@ -27,7 +27,7 @@ function sendLocation(login, lat, lng) {
         request.onreadystatechange = function() {
                 if (request.readyState == 4) {
                         console.log(responseText);
-                        jsonLocation = JSON.parse(request.responseText);
+                        jsonLocation = JSON.parse(responseText);
                         console.log(jsonLocation);
                 }
         }
