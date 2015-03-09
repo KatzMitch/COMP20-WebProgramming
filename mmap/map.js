@@ -1,3 +1,5 @@
+var myLat, myLng;
+
 function init() {
         console.log("init");
         getLocation();
