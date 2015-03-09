@@ -41,7 +41,7 @@ function drawMap() {
 
         for (x in jsonLocation) {
                 marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng);
+                        position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
                         title: jsonLocation[x].login
                 });
                 marker.setMap(map);
