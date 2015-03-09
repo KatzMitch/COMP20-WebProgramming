@@ -25,8 +25,10 @@ function sendLocation(login, lat, lng) {
         request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.onreadystatechange = function() {
-                jsonLocation = JSON.parse(request.responsetext);
-                console.log(jsonLocation);
+                if (request.readystate == 4) {
+                        jsonLocation = JSON.parse(request.responsetext);
+                        console.log(jsonLocation);
+                }
         }
         query = "login=" + login + "&lat=" + myLat + "&lng=" + myLng;
         request.send(query);
