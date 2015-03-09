@@ -1,7 +1,7 @@
 var myLat, myLng, jsonLocation;
 
 function init() {
-        window.addEventListener("load", getLocation);
+        document.getElementById("map").addEventListener("load", getLocation);
 }
 
 function getLocation() {
