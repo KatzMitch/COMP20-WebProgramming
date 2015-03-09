@@ -1,8 +1,6 @@
-var jsonLocations;
-
 function init() {
         getLocation();
-        
+        drawMap();
 }
 
 function getLocation() {
@@ -25,3 +23,35 @@ function sendLocation(login, lat, lng) {
         query = "login=" + login + "&lat=" + lat + "&lng=" + lng;
         request.send(query);
 }
+
+function parseJSON() {
+        if (request.readystate == 4) {
+                jsonLocation = JSON.parse(request.responsetext);
+        }
+}
+
+function drawMap() {
+        me = new google.maps.LatLng(lat, lng);
+        mapOptions = {
+                zoom: 12,
+                center = me
+        };
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        map.panTo(me);
+
+        for (x in jsonLocation) {
+                marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng);
+                        title: jsonLocation[x].login
+                });
+                marker.setMap(map);
+        }
+}
+
+
+
+
+
+
+
+
