@@ -18,7 +18,8 @@ function getLocation() {
         me = new google.maps.LatLng(myLat, myLng);
         mapOptions = {
                 zoom: 12,
-                center: me
+                center: me,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         map.panTo(me);
