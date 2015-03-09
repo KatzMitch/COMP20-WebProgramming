@@ -23,7 +23,7 @@ function getLocation() {
 
 function sendLocation(login, lat, lng) {
         console.log("send location");
-        request = new XMLHttpRequest();
+        var request = new XMLHttpRequest();
         request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.onreadystatechange = parseJSON;
