@@ -11,9 +11,9 @@ function init() {
 function getLocation() {
         console.log("get location");
         if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function() {
-                        myLat = position.coords.latitude;
-                        myLng = position.coords.longitude;
+                navigator.geolocation.getCurrentPosition(function(pos) {
+                        myLat = pos.coords.latitude;
+                        myLng = pos.coords.longitude;
                         sendLocation("SheriMcKelvey", myLat, myLng);
                 });
         } else {
@@ -46,7 +46,6 @@ function drawMap() {
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         map.panTo(mapOptions.center);
-
         for (x in jsonLocation) {
                 marker = new google.maps.Marker({
                         position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
