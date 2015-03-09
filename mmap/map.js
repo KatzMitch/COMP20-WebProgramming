@@ -1,14 +1,7 @@
 var myLat, myLng, jsonLocation;
 
 function init() {
-        me = new google.maps.LatLng(myLat, myLng);
-        mapOptions = {
-                zoom: 12,
-                center: {lat: myLat, lng: myLng}
-        };
-        map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        map.panTo(me);
-        getLocation()
+        getLocation();
 }
 
 function getLocation() {
@@ -22,6 +15,13 @@ function getLocation() {
         } else {
                 alert("Oops! Your browser doesn't support GeoLocation");
         }
+        me = new google.maps.LatLng(myLat, myLng);
+        mapOptions = {
+                zoom: 12,
+                center: {lat: myLat, lng: myLng}
+        };
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        map.panTo(me);
 }
 
 function sendLocation(login, lat, lng) {
