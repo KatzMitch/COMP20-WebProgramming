@@ -1,4 +1,4 @@
-var myLat, myLng;
+var myLat, myLng, jsonLocation;
 
 function init() {
         console.log("init");
