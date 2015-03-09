@@ -13,7 +13,7 @@ function getLocation() {
                 navigator.geolocation.getCurrentPosition(function() {
                         myLat = position.coords.latitude;
                         myLng = position.coords.longitude;
-                        sendLocation("SheriMcKelvey", lat, lng);
+                        sendLocation("SheriMcKelvey", myLat, myLng);
                 });
         } else {
                 alert("Oops! Your browser doesn't support GeoLocation");
@@ -39,13 +39,12 @@ function parseJSON() {
 
 function drawMap() {
         console.log("draw");
-        me = new google.maps.LatLng(myLat, myLng);
         mapOptions = {
                 zoom: 12,
-                center: {lat: myLat, lng: myLng}
+                center: new google.maps.LatLng(myLat, myLng)
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        map.panTo(me);
+        map.panTo(mapOptions.center);
 
         for (x in jsonLocation) {
                 marker = new google.maps.Marker({
