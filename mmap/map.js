@@ -35,6 +35,7 @@ function sendLocation(login, lat, lng) {
 
 function drawMap() {
         console.log("draw");
+        console.log(myLat + " " + myLng);
         mapOptions = {
                 zoom: 12,
                 center: new google.maps.LatLng(myLat, myLng)
