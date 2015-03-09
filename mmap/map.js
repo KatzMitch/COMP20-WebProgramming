@@ -6,7 +6,7 @@ var request;
 function init() {
         console.log("init");
         getLocation();
-        console.log(jsonLocation);
+        drawMap();
 }
 
 function getLocation() {
@@ -36,6 +36,7 @@ function parseJSON() {
         console.log("parse json");
         if (request.readystate == 4) {
                 jsonLocation = JSON.parse(request.responsetext);
+                console.log(jsonLocation);
         }
 }
 
