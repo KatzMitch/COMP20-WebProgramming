@@ -6,8 +6,7 @@ function init() {
         me = new google.maps.LatLng(myLat, myLng);
         mapOptions = {
                 zoom: 12,
-                center: me,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                center: me
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         getLocation();
