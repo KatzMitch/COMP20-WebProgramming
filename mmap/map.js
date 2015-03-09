@@ -23,7 +23,7 @@ function getLocation() {
 
 function sendLocation(login, lat, lng) {
         console.log("send location");
-        var request = new XMLHttpRequest();
+        request = new XMLHttpRequest();
         request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.onreadystatechange = parseJSON;
@@ -39,24 +39,21 @@ function parseJSON() {
 }
 
 function drawMap() {
-        console.log(request.readystate);
-        if (request.readystate == 4) {
-                console.log("draw");
-                mapOptions = {
-                        zoom: 12,
-                        center: new google.maps.LatLng(myLat, myLng)
-                };
-                map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                map.panTo(mapOptions.center);
-                console.log("loop in");
-                for (x in jsonLocation) {
-                        console.log("looping");
-                        marker = new google.maps.Marker({
-                                position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
-                                title: jsonLocation[x].login
-                        });
-                        marker.setMap(map);
-                }
-                console.log("out of loop");
+        console.log("draw");
+        mapOptions = {
+                zoom: 12,
+                center: new google.maps.LatLng(myLat, myLng)
         }
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        map.panTo(mapOptions.center);
+        console.log("loop in");
+        for (x in jsonLocation) {
+                console.log("looping");
+                marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
+                        title: jsonLocation[x].login
+                });
+                marker.setMap(map);
+        }
+        console.log("out of loop");
 }
