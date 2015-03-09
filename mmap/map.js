@@ -24,11 +24,12 @@ function sendLocation(login, lat, lng) {
         request = new XMLHttpRequest();
         request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.onreadystatechange = parseJSON;
+        request.onreadystatechange = function() {
+                jsonLocation = JSON.parse(request.responsetext);
+                console.log(jsonLocation);
+        }
         query = "login=" + login + "&lat=" + myLat + "&lng=" + myLng;
         request.send(query);
-        jsonLocation = JSON.parse(request.responsetext);
-        console.log(jsonLocation);
 }
 
 function drawMap() {
