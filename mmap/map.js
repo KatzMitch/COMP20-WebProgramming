@@ -52,12 +52,13 @@ function drawMap() {
                 console.log("looping");
                 marker = new google.maps.Marker({
                         position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
-                        title: jsonLocation[x].login + " " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng)
+                        title: jsonLocation[x].login + " " + haversine(myLat, 
+                               jsonLocation[x].lat, myLng, jsonLocation[x].lng)
                 });
                 marker.setMap(map);
                 google.maps.addListener(marker, "click", function() {
                         infowindow.setContent(marker.title);
-                        infowindow.open(map, marker);
+                        infowindow.open(map, marker.title);
                 });
         }
         console.log("out of loop");
