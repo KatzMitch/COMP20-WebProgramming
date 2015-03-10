@@ -56,7 +56,6 @@ function drawMap() {
                 });
                 marker.setMap(map);
                 google.maps.addListener(marker, "click", function() {
-                        infowindow.close();
                         infowindow.setContent(marker.title);
                         infowindow.open(map, marker);
                 });
