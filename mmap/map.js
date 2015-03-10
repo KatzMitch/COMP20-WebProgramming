@@ -52,9 +52,30 @@ function drawMap() {
                 console.log("looping");
                 marker = new google.maps.Marker({
                         position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
-                        title: jsonLocation[x].login
+                        title: jsonLocation[x].login + " " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng)
                 });
                 marker.setMap(map);
+                google.maps.addListener(marker, "click", function() {
+                        infowindow.close();
+                        infowindow.setContent(marker.title);
+                        infowindow.open(map, marker);
+                });
         }
         console.log("out of loop");
+}
+
+Number.prototype.toRad = function() {
+        return this * Math.PI / 180.0;
+}
+
+function haversine(lat1, lat2, lng1, lng2) {
+        R = 6371;
+        deltaLat = lat2 - lat1;
+        deltaLat = deltaLat.toRad();
+        deltaLng = lng2 - lng1;
+        deltaLng = deltaLng.toRad();
+        a = Math.sin(deltaLat / 2) * Math.sin(deltaLab / 2) +
+                Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+                Math.sin(deltaLng / 2) * Math.cos(deltaLng / 2);
+        return (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) * R * 0.6214);
 }
