@@ -55,13 +55,13 @@ function drawMap() {
                         title: jsonLocation[x].login + " " + haversine(myLat, 
                                jsonLocation[x].lat, myLng, jsonLocation[x].lng)
                 });
-                marker.setMap(map);
                 google.maps.event.addEventListener(marker, "click", function(){
                         infowindow = new google.maps.InfoWindow( {
-                                content: marker.title
+                                content: marker.getTitle()
                         });
                         infowindow.open(map, marker);
                 });
+                marker.setMap(map);
         }
         console.log("out of loop");
 }
