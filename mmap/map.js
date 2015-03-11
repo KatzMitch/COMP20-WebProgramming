@@ -48,7 +48,7 @@ function drawMap() {
                         title: jsonLocation[x].login + " is " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng).toFixed(4) + " miles away from you."
                 });
                 if (marker.position == me) {
-                        this.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+                        marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
                 }
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
