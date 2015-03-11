@@ -58,10 +58,8 @@ function drawMap() {
                 });
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
-                        infowindow.close()
-                        infowindow.setContent(marker.getTitle());
+                        infowindow.setContent(marker.title);
                         infowindow.open(map, marker);
-                        map.panTo(marker);
                 });
         }
         console.log("out of loop");
