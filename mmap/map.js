@@ -50,7 +50,6 @@ function drawMap() {
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
                         infowindow.setContent(this.title);
-                        //infowindow.setPosition(this.position);
                         infowindow.open(map, this);
                 });
         }
@@ -69,5 +68,7 @@ function haversine(lat1, lat2, lng1, lng2) {
         a = Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
                 Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
                 Math.sin(deltaLng / 2) * Math.cos(deltaLng / 2);
-        return (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) * R * 0.6214);
+        ret = (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) * R * 0.6214);
+        console.log(ret);
+        return ret;
 }
