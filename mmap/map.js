@@ -40,6 +40,7 @@ function sendLocation(login, lat, lng) {
 
 function drawMap() {
         me = new google.maps.LatLng(myLat, myLng);
+        infowindow = new google.maps.InfoWindow;
         map.panTo(me);
         for (x in jsonLocation) {
                 marker = new google.maps.Marker({
@@ -48,8 +49,6 @@ function drawMap() {
                 });
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
-                        infowindow = new google.maps.InfoWindow;
-                        infowindow.setPosition(marker.position);
                         infowindow.setContent(marker.title);
                         infowindow.open(map, marker);
                 });
