@@ -49,9 +49,9 @@ function drawMap() {
                 });
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
-                infowindow.setContent(marker.title);
-                infowindow.open(map, marker);
-        });
+                        infowindow.setContent(this.title);
+                        infowindow.open(map, marker);
+                });
         }
 }
 
