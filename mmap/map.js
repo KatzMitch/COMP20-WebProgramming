@@ -56,14 +56,14 @@ function drawMap() {
                         title: jsonLocation[x].login + " is " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng) + " miles away."
                 });
                 marker.setMap(map);
+                google.maps.event.addListener(marker, "click", function () {
+                        infowindow.close();
+                        infowindow.setPosition(marker.position);
+                        infowindow.setContent(marker.title);
+                        infowindow.open(map, marker);
+                });
         }
         console.log("out of loop");
-        google.maps.event.addListener(marker, "click", function () {
-                infowindow.close();
-                infowindow.setPosition(marker.position);
-                infowindow.setContent(marker.title);
-                infowindow.open(map, marker);
-        });
 }
 
 Number.prototype.toRad = function() {
