@@ -47,6 +47,9 @@ function drawMap() {
                         position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
                         title: jsonLocation[x].login + " is " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng).toFixed(4) + " miles away from you."
                 });
+                if (marker.position == me) {
+                        this.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+                }
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
                         infowindow.setContent(this.title);
@@ -66,7 +69,5 @@ function haversine(lat1, lat2, lng1, lng2) {
         a = Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
                 Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
                 Math.sin(deltaLng / 2) * Math.sin(deltaLng / 2);
-        ret = (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) * R * 0.6214);
-        console.log(ret);
-        return ret;
+        return (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) * R * 0.6214);
 }
