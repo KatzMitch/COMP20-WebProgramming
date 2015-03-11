@@ -13,10 +13,8 @@ function init() {
 }
 
 function getLocation() {
-        console.log("get location");
         if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(pos) {
-                        console.log("Get lat/lng");
                         myLat = pos.coords.latitude;
                         myLng = pos.coords.longitude;
                         sendLocation("SheriMcKelvey", myLat, myLng);
@@ -24,11 +22,9 @@ function getLocation() {
         } else {
                 alert("Oops! Your browser doesn't support GeoLocation");
         }
-        console.log("make me");
 }
 
 function sendLocation(login, lat, lng) {
-        console.log("send location");
         request = new XMLHttpRequest();
         request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -43,13 +39,9 @@ function sendLocation(login, lat, lng) {
 }
 
 function drawMap() {
-        console.log("draw");
         me = new google.maps.LatLng(myLat, myLng);
-        console.log(myLat + " " + myLng);
         map.panTo(me);
-        console.log(jsonLocation);
         for (x in jsonLocation) {
-                console.log("looping");
                 marker = new google.maps.Marker({
                         position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
                         title: jsonLocation[x].login + " is " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng).toFixed(4) + " miles away from you."
@@ -62,7 +54,6 @@ function drawMap() {
                         infowindow.open(map, marker);
                 });
         }
-        console.log("out of loop");
 }
 
 Number.prototype.toRad = function() {
