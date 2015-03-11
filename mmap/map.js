@@ -62,7 +62,7 @@ function drawMap() {
                                 content: marker.getTitle()
                         });
                         infowindow.setContent(marker.title);
-                        infowindow.open(map, marker);
+                        infowindow.open(marker);
                         map.panTo(marker);
                 });
         }
