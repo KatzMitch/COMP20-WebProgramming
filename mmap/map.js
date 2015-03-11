@@ -48,11 +48,11 @@ function drawMap() {
                         title: jsonLocation[x].login + " is " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng).toFixed(4) + " miles away from you."
                 });
                 marker.setMap(map);
-                google.maps.event.addListener(marker, "click", function () {
-                        infowindow.setContent(marker.title);
-                        infowindow.open(map, marker);
-                });
         }
+        google.maps.event.addListener(marker, "click", function () {
+                infowindow.setContent(marker.title);
+                infowindow.open(map, marker);
+        });
 }
 
 Number.prototype.toRad = function() {
