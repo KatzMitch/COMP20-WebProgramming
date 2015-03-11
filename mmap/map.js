@@ -48,16 +48,15 @@ function drawMap() {
         console.log(myLat + " " + myLng);
         map.panTo(me);
         console.log(jsonLocation);
-        infowindow = new google.maps.InfoWindow;
         for (x in jsonLocation) {
                 console.log("looping");
                 marker = new google.maps.Marker({
                         position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
-                        title: jsonLocation[x].login + " is " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng) + " miles away."
+                        title: jsonLocation[x].login + " is " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng) + " miles away from you."
                 });
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
-                        infowindow.close();
+                        infowindow = new google.maps.InfoWindow;
                         infowindow.setPosition(marker.position);
                         infowindow.setContent(marker.title);
                         infowindow.open(map, marker);
