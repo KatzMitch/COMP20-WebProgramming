@@ -26,8 +26,11 @@ function getLocation() {
 
 function sendLocation(login, lat, lng) {
         request = new XMLHttpRequest();
-        request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.open("POST",
+                     "https://secret-about-box.herokuapp.com/sendLocation",
+                     true);
+        request.setRequestHeader("Content-type",
+                                 "application/x-www-form-urlencoded");
         request.onreadystatechange = function() {
                 if (request.readyState == 4) {
                         jsonLocation = JSON.parse(request.responseText);
@@ -44,20 +47,28 @@ function drawMap() {
         map.panTo(me);
         for (x in jsonLocation) {
                 marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
-                        title: jsonLocation[x].login + " is " + haversine(myLat, jsonLocation[x].lat, myLng, jsonLocation[x].lng).toFixed(4) + " miles away from you."
+                        position: new google.maps.LatLng(jsonLocation[x].lat,
+                                  jsonLocation[x].lng),
+                        title: jsonLocation[x].login + " is " +
+                                haversine(myLat, jsonLocation[x].lat,
+                                          myLng,
+                                          jsonLocation[x].lng).toFixed(4)
+                                + " miles away from you."
                 });
-                if (jsonLocation[x].lat == myLat && jsonLocation[x].lng == myLng) {
+                if (jsonLocation[x].lat == myLat &&
+                    jsonLocation[x].lng == myLng) {
                         marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
-                        google.maps.event.addListener(marker, "click", function () {
-                                infowindow.setContent("Here you are!");
-                                infowindow.open(map, this);
-                        });
+                        google.maps.event.addListener(marker, "click",
+                                function () {
+                                        infowindow.setContent("Here you are!");
+                                        infowindow.open(map, this);
+                                });
                 } else {
-                        google.maps.event.addListener(marker, "click", function () {
-                                infowindow.setContent(this.title);
-                                infowindow.open(map, this);
-                        });
+                        google.maps.event.addListener(marker, "click",
+                                function () {
+                                        infowindow.setContent(this.title);
+                                        infowindow.open(map, this);
+                                });
                 }
                 marker.setMap(map);
         }
