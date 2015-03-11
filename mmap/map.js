@@ -55,19 +55,17 @@ function drawMap() {
         }
 }
 
-Number.prototype.toRad = function() {
-        return this * Math.PI / 180.0;
+function toRad(num) {
+        return num * Math.PI / 180.0;
 }
 
 function haversine(lat1, lat2, lng1, lng2) {
         R = 6371;
-        deltaLat = lat2 - lat1;
-        deltaLat = deltaLat.toRad();
-        deltaLng = lng2 - lng1;
-        deltaLng = deltaLng.toRad();
+        deltaLat = toRad(lat2 - lat1);
+        deltaLng = toRad(lng2 - lng1);
         a = Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
-                Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
-                Math.sin(deltaLng / 2) * Math.cos(deltaLng / 2);
+                Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+                Math.sin(deltaLng / 2) * Math.sin(deltaLng / 2);
         ret = (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) * R * 0.6214);
         console.log(ret);
         return ret;
