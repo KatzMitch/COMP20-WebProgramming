@@ -52,16 +52,17 @@ function drawMap() {
                 console.log("looping");
                 marker = new google.maps.Marker({
                         position: new google.maps.LatLng(jsonLocation[x].lat, jsonLocation[x].lng),
-                        title: jsonLocation[x].login + " " + haversine(myLat, 
-                               jsonLocation[x].lat, myLng, jsonLocation[x].lng)
+                        title: jsonLocation[x].login + " is " + haversine(myLat, 
+                               jsonLocation[x].lat, myLng, jsonLocation[x].lng) + " miles away."
                 });
-                google.maps.event.addEventListener(marker, "click", function(){
-                        infowindow = new google.maps.InfoWindow( {
-                                content: marker.getTitle()
-                        });
+                if (marker.position == me) {
+                        marker.getIcon(google.maps.Symbol.fillColor = "green");
+                }
+                marker.setMap(map);
+                google.maps.event.addListener(marker, "click", function () {
+                        infowindow.setContent(marker.title);
                         infowindow.open(map, marker);
                 });
-                marker.setMap(map);
         }
         console.log("out of loop");
 }
