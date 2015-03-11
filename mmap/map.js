@@ -55,9 +55,6 @@ function drawMap() {
                         title: jsonLocation[x].login + " is " + haversine(myLat, 
                                jsonLocation[x].lat, myLng, jsonLocation[x].lng) + " miles away."
                 });
-                if (marker.position == me) {
-                        marker.getIcon(google.maps.Symbol.fillColor = "green");
-                }
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
                         infowindow = new google.maps.InfoWindow({
@@ -65,6 +62,7 @@ function drawMap() {
                         })
                         infowindow.setContent(marker.title);
                         infowindow.open(map, marker);
+                        map.panTo(marker);
                 });
         }
         console.log("out of loop");
