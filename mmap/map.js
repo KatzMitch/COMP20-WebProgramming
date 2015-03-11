@@ -58,6 +58,9 @@ function drawMap() {
                 });
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
+                        infowindow = new google.maps.InfoWindow({
+                                content: marker.getTitle()
+                        });
                         infowindow.setContent(marker.title);
                         infowindow.open(map, marker);
                         map.panTo(marker);
