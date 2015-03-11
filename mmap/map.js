@@ -50,7 +50,7 @@ function drawMap() {
                 marker.setMap(map);
                 google.maps.event.addListener(marker, "click", function () {
                         infowindow.setContent(this.title);
-                        infowindow.setLocation(this.position);
+                        infowindow.setPosition(this.position);
                         infowindow.open(map, marker);
                 });
         }
