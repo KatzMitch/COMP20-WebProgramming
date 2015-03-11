@@ -56,6 +56,12 @@ function drawMap() {
                                jsonLocation[x].lat, myLng, jsonLocation[x].lng)
                 });
                 marker.setMap(map);
+                google.maps.event.addEventListener(marker, "click", function(){
+                        infowindow = new google.maps.InfoWindow( {
+                                content: marker.title
+                        });
+                        infowindow.open(map, marker);
+                });
         }
         console.log("out of loop");
 }
