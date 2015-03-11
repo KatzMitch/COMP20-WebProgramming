@@ -49,12 +49,17 @@ function drawMap() {
                 });
                 if (jsonLocation[x].lat == myLat && jsonLocation[x].lng == myLng) {
                         marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+                        google.maps.event.addListener(marker, "click", function () {
+                                infowindow.setContent("Here you are!");
+                                infowindow.open(map, this);
+                        });
+                } else {
+                        google.maps.event.addListener(marker, "click", function () {
+                                infowindow.setContent(this.title);
+                                infowindow.open(map, this);
+                        });
                 }
                 marker.setMap(map);
-                google.maps.event.addListener(marker, "click", function () {
-                        infowindow.setContent(this.title);
-                        infowindow.open(map, this);
-                });
         }
 }
 
