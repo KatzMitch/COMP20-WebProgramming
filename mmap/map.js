@@ -27,7 +27,7 @@ function getLocation() {
 function sendLocation(login, lat, lng) {
         request = new XMLHttpRequest();
         request.open("POST",
-                     "https://secret-about-box.herokuapp.com/sendLocation",
+                     "https://pure-badlands-3481.herokuapp.com/sendLocation",
                      true);
         request.setRequestHeader("Content-type",
                                  "application/x-www-form-urlencoded");
