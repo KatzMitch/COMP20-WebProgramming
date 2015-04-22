@@ -3,10 +3,68 @@
 <html>
 <head>
         <meta charset="utf-8"/>
-        <title>COMP20 Assignment 4: Security</title>
+        <title>COMP20 Assignment 4</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+        <div id="header">
+                <h1>Security Assessment: Marauder's Map</h1>
+                <p>COMP20: Assignent 5</p>
+                <p>Report by Mitchell Katz</p>
+                <p>Analyzing Web App by Zabir Islam</p>
+                <p>Tuesday, April 21, 2015</p>
+        </div>
 
+        <div class="box">
+                <h2>Introduction</h2>
+                <p>For Assignment 2, we created a map application that sent the client's current location to a server, and received a JSON of all check-ins to the server. The page would then create a map of all of the locations and calculate the distance from the user.</p>
+                <p>In Assignment 3, we then recreated the server. We created an API that would accept the locations, store them in a MongoDB database, and could respond to external requests. This relied on enabling CORS and setting up a web database server</p>
+                <p>Finally, I was "hired" to test the security of Zabir's application, breaking the app if need be. I am looking for all security vulnerabilities that I can find and then suggesting solutions for those problems.</p>
+        </div>
+
+        <div class="box">
+                <h2>Methodology</h2>
+                <p>I performed a two step analysis of the application. First was a black-box attempt to breach the security of the server and webpage. Second, I examined the source code for the server and page.</p>
+                <p>The two main tools I used to examine the security of the application were:</p>
+                <ul>
+                        <li><a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">Postman</a></li>
+                        <li><a href="http://www.portswigger.net/burp/">Burp Suite</a></li>
+                </ul>
+        </div>
+
+        <div class="box">
+                <h2>Abstract of Findings</h2>
+                <p>FINDINGS HERE</p>
+        </div>
+
+        <div class="box">
+                <h2>Specific Issues Found</h2>
+                <ol>
+                        <li>
+                                <h3>Problem 1</h3>
+                                <p>Description of Problem</p>
+                                <p>How I broke the code</p>
+                                <p>Solution</p>
+                        </li>
+                        <li>
+                                <h3>Problem 2</h3>
+                                <p>Description of Problem</p>
+                                <p>How I broke the code</p>
+                                <p>Solution</p>
+                        </li>
+                        <li>
+                                <h3>Problem 3</h3>
+                                <p>Description of Problem</p>
+                                <p>How I broke the code</p>
+                                <p>Solution</p>
+                        </li>
+                </ol>
+        </div>
+
+        <div class="box">
+                <h2>Conclusion</h2>
+                <p>Description of conclusion</p>
+        </div>
 </body>
 </html>
