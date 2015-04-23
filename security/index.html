@@ -26,11 +26,7 @@
         <div class="box">
                 <h2>Methodology</h2>
                 <p>I performed a two step analysis of the application. First was a black-box attempt to breach the security of the server and webpage. Second, I examined the source code for the server and page.</p>
-                <p>The two main tools I used to examine the security of the application were:</p>
-                <ul>
-                        <li><a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">Postman</a></li>
-                        <li><a href="http://www.portswigger.net/burp/">Burp Suite</a></li>
-                </ul>
+                <p>The main tool I used to examine the security of the application was the REST client <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">Postman</a></p>
         </div>
 
         <div class="box">
@@ -42,22 +38,31 @@
                 <h2>Specific Issues Found</h2>
                 <ol>
                         <li>
-                                <h3>Problem 1</h3>
-                                <p>Description of Problem</p>
-                                <p>How I broke the code</p>
-                                <p>Solution</p>
+                                <h3>Cross Site Scripting (XSS)</h3>
+                                <p><span class="high">Severity: HIGH </span>-- XSS Vulnerability</p>
+                                <p>The POST request accepts any string as valid input for the login parameter, and both of the GET requests will display the string. This means that if the login parameter is JavaScript code it will be executed upon running a GET request that returns it, allowing hackers to post malicious information, redirect to other webpages, or conduct other fradulent activity.</p>
+                                <img id="post" src="XSSPostRequest.jpg" alt="XSS Post Request">
+                                <p>Using a REST client, I sent a POST request with a JavaScript script code to create an alert instead of the login parameter.</p>
+                                <img id="XSS" src="XSS.jpg" alt="XSS Alert Example">
+                                <p>Solution: The server should parse the input, changing the &lt; into the HTML text equivalent &amp;lt and the &gt; into the equivalent &amp;gt</p>
+                                <img id="parse" src="parseinput.jpg" alt="Parse Input Function">
                         </li>
                         <li>
-                                <h3>Problem 2</h3>
-                                <p>Description of Problem</p>
-                                <p>How I broke the code</p>
-                                <p>Solution</p>
+                                <h3>Invalid Coordinates</h3>
+                                <p><span class="med">Severity: MEDIUM </span>-- No Data Validation</p>
+                                <p>For the POST request, the server accepts any numbers as valid form data for the latitude and longitude, meaning you can POST bogus coordinates that do not exist on the globe (i.e. Latitude = 10000 and Longitude = -550)</p>
+                                <p>Using Postman (or any REST client) I sent a check in containing invalid coordinates to the server. While the Google Map API did not break, this does waste valuable server space.</p>
+                                <img id="coords" src="InvalidCoords.jpg" alt="Invalid Coordinates on Index Page">
+                                <p>Solution: The server should have a simple check whether the coordinates are within valid Latitude and Longitude ranges (-90 to 90 and -180 to 180 respectively)</p>
                         </li>
                         <li>
-                                <h3>Problem 3</h3>
-                                <p>Description of Problem</p>
-                                <p>How I broke the code</p>
-                                <p>Solution</p>
+                                <h3>HTML Encoding</h3>
+                                <p><span class="low">Severity: LOW </span>-- HTML Special Character Encoding</p>
+                                <p>Different REST clients encode special characters (like spaces " ") with different methods meaning that POSTing a request with login "Mitchell Katz" through Postman and then trying to GET location.json with query: "login=Mitchell Katz" will not return the document</p>
+                                <img id="postspace" src="PostSpace.jpg" alt="POST Request with a Space">
+                                <p>Again, using Postman send a POST request with the login equal to some string with spaces. Since the API uses x-www-form-urlencoded format for the POST method, that encodes spaces as "+" but the GET method is URL encoded so it will encode a space as "%20". This change will lead to login strings with spaces not being found in the Mongo Database.</p>
+                                <img id="getspace" src="GetSpace.jpg" alt="GET Request with a Space">
+                                <p>The best solution to this problem (in my opinion) is just to clarify the API contract that spaces are not allowed as input, however you could also parse the input like you do with XSS attacks.</p>
                         </li>
                 </ol>
         </div>

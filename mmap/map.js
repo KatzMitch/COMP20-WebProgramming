@@ -27,7 +27,7 @@ function getLocation() {
 function sendLocation(login, lat, lng) {
         request = new XMLHttpRequest();
         request.open("POST",
-                     "https://pure-badlands-3481.herokuapp.com/sendLocation",
+                     "http://localhost:3000/sendLocation",
                      true);
         request.setRequestHeader("Content-type",
                                  "application/x-www-form-urlencoded");

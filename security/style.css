@@ -13,16 +13,6 @@ a:hover {
         color: grey;
 }
 
-#header {
-        padding-bottom: 4px;
-        padding-top: 0px;
-}
-
-#header p {
-        margin-top: 0px;
-        margin-bottom: 0px;
-}
-
 #header:last-child {
         margin-bottom: 4px;
 }
@@ -49,4 +39,71 @@ li p {
         margin-bottom: 0px;
         padding-left: 15px;
         color: black;
+        font-weight: normal;
+}
+
+img {
+        border-style: dashed;
+        border-color: black;
+        margin-left: 16px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+}
+
+p {
+        padding-top: 8px;
+        padding-bottom: 8px;
+}
+
+#header {
+        padding-bottom: 4px;
+        padding-top: 0px;
+}
+
+#header p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+}
+
+.high {
+        color: red;
+}
+
+.med {
+        color: orange;
+}
+
+.low {
+        color: green;
+}
+
+#coords {
+        height: 200px;
+        width: 600px;
+}
+
+#XSS {
+        height: 250px;
+        width: 600px;
+}
+
+#parse {
+        height: 75px;
+        width: 600px;
+        border-style: none;
+}
+
+#post {
+        height: 250;
+        width: 600px;
+}
+
+#getspace {
+        height: 100px;
+        width: 600px;
+}
+
+#postspace {
+        height: 250px;
+        width: 600px;
 }
