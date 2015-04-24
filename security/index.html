@@ -25,13 +25,12 @@
 
         <div class="box">
                 <h2>Methodology</h2>
-                <p>I performed a two step analysis of the application. First was a black-box attempt to breach the security of the server and webpage. Second, I examined the source code for the server and page.</p>
-                <p>The main tool I used to examine the security of the application was the REST client <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">Postman</a></p>
+                <p>I performed a two step analysis of the application. First was a black-box attempt to breach the security of the server and webpage. Second, I examined the source code for the server and page. The main tool I used to examine the security of the application was the REST client <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">Postman</a></p>
         </div>
 
         <div class="box">
                 <h2>Abstract of Findings</h2>
-                <p>FINDINGS HERE</p>
+                <p>Most of the issues I found came with sending bad information to the server in various capacities. The application takes information in, and displays it back out but performs very few checks on the information so if the client (or some hacker) passes information that is dangerous in some capacity it will break the application in various ways. The application trusts the user too much and would be much more secure if it tried to verify the validity of the input in some capacity.</p>
         </div>
 
         <div class="box">
@@ -69,7 +68,7 @@
 
         <div class="box">
                 <h2>Conclusion</h2>
-                <p>Description of conclusion</p>
+                <p>The security problems found in the Marauder's Map make it both easy for a hacker to waste memory space through fradulent data as well as make the User's experience miserable through XSS attacks leading to popup ads and redirections. Fixing these changes is a matter of specifying what the server requires for input and making sure the client and server ONLY accept correct data.</p>
         </div>
 </body>
 </html>
